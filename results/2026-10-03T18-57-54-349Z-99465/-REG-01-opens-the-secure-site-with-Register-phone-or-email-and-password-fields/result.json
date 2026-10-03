@@ -1,0 +1,16 @@
+{
+  "title": "Get Started / Start your transfer — registration [REG-01] opens the secure site with Register, phone or email, and password fields",
+  "status": "passed",
+  "url": "https://secure.riamoneytransfer.com/login",
+  "details": [
+    {
+      "destinationUrl": "https://secure.riamoneytransfer.com/",
+      "fields": {
+        "registerText": "Register",
+        "phoneOrEmailVisible": true,
+        "passwordVisible": true,
+        "passwordType": "password"
+      }
+    }
+  ]
+}

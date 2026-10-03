@@ -1,0 +1,10 @@
+{
+  "title": "Get Started / Start your transfer — registration [REG-02] redirects to country selection when Register is clicked",
+  "status": "failed",
+  "url": "https://secure.riamoneytransfer.com/registration",
+  "details": [],
+  "error": {
+    "name": "AccessBlockedError",
+    "message": "Registration is restricted by location: Unable to register account\nBased on your current location you cannot register an account for Chile\nGot it"
+  }
+}

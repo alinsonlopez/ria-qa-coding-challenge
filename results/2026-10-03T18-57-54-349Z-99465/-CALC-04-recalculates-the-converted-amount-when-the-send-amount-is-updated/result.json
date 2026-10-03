@@ -1,0 +1,32 @@
+{
+  "title": "Ria Calculator [CALC-04] recalculates the converted amount when the send amount is updated",
+  "status": "passed",
+  "url": "https://www.riamoneytransfer.com/en-cl/",
+  "details": [
+    {
+      "initialQuote": {
+        "sendAmount": "25,000",
+        "receiveAmount": "3,332.80",
+        "sourceCurrency": "CLP",
+        "receiveCurrency": "HTG",
+        "rateText": "0.133312 HTG",
+        "rateBase": "1 CLP ="
+      },
+      "updatedQuote": {
+        "sendAmount": "50,000",
+        "receiveAmount": "6,665.60",
+        "sourceCurrency": "CLP",
+        "receiveCurrency": "HTG",
+        "rateText": "0.133312 HTG",
+        "rateBase": "1 CLP ="
+      },
+      "comparison": {
+        "expected": "6665.60",
+        "actual": "6,665.60",
+        "tolerance": "0.06",
+        "difference": "0",
+        "matches": true
+      }
+    }
+  ]
+}

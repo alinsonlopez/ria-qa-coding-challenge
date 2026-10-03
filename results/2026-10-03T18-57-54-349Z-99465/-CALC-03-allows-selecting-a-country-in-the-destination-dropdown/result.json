@@ -1,0 +1,11 @@
+{
+  "title": "Ria Calculator [CALC-03] allows selecting a country in the destination dropdown",
+  "status": "passed",
+  "url": "https://www.riamoneytransfer.com/en-cl/",
+  "details": [
+    {
+      "countryToSelect": "Bolivia",
+      "selectedCountryCode": "BO"
+    }
+  ]
+}

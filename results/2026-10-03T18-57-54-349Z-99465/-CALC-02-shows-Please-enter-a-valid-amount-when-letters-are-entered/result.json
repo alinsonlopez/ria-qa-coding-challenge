@@ -1,0 +1,19 @@
+{
+  "title": "Ria Calculator [CALC-02] shows \"Please enter a valid amount\" when letters are entered",
+  "status": "failed",
+  "url": "https://www.riamoneytransfer.com/en-cl/",
+  "details": [
+    {
+      "entered": "abc",
+      "expected": "Please enter a valid amount",
+      "actual": {
+        "message": "",
+        "value": ""
+      }
+    }
+  ],
+  "error": {
+    "name": "AssertionError",
+    "message": "Required error is missing. Retained value: \"\".\n\u001b[32mactual\u001b[39m \u001b[31mexpected\u001b[39m\n\n\u001b[39m'\u001b[39m\u001b[31mP\u001b[39m\u001b[31ml\u001b[39m\u001b[31me\u001b[39m\u001b[31ma\u001b[39m\u001b[31ms\u001b[39m\u001b[31me\u001b[39m\u001b[31m \u001b[39m\u001b[31me\u001b[39m\u001b[31mn\u001b[39m\u001b[31mt\u001b[39m\u001b[31me\u001b[39m\u001b[31mr\u001b[39m\u001b[31m \u001b[39m\u001b[31ma\u001b[39m\u001b[31m \u001b[39m\u001b[31mv\u001b[39m\u001b[31ma\u001b[39m\u001b[31ml\u001b[39m\u001b[31mi\u001b[39m\u001b[31md\u001b[39m\u001b[31m \u001b[39m\u001b[31ma\u001b[39m\u001b[31mm\u001b[39m\u001b[31mo\u001b[39m\u001b[31mu\u001b[39m\u001b[31mn\u001b[39m\u001b[31mt\u001b[39m\u001b[39m'\u001b[39m\n"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "ria-selenium-challenge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ria Money Transfer QA challenge — TypeScript and Selenium E2E tests",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "npm run typecheck && node --import tsx node_modules/mocha/bin/mocha.js",
+    "test:headless": "HEADLESS=true npm test",
+    "report:open": "open artifacts/report/index.html"
+  },
+  "devDependencies": {
+    "@types/mocha": "10.0.10",
+    "@types/mochawesome": "6.2.5",
+    "@types/node": "24.19.1",
+    "@types/selenium-webdriver": "4.35.7",
+    "decimal.js": "10.6.0",
+    "mocha": "12.0.3",
+    "mochawesome": "8.1.1",
+    "selenium-webdriver": "4.50.0",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2"
+  }
+}

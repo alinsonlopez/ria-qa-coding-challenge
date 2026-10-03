@@ -1,0 +1,24 @@
+{
+  "title": "Ria Calculator [CALC-01] converts 25000 CLP to Haiti HTG using the displayed exchange rate",
+  "status": "passed",
+  "url": "https://www.riamoneytransfer.com/en-cl/",
+  "details": [
+    {
+      "quote": {
+        "sendAmount": "25,000",
+        "receiveAmount": "3,332.80",
+        "sourceCurrency": "CLP",
+        "receiveCurrency": "HTG",
+        "rateText": "0.133312 HTG",
+        "rateBase": "1 CLP ="
+      },
+      "comparison": {
+        "expected": "3332.80",
+        "actual": "3,332.80",
+        "tolerance": "0.035",
+        "difference": "0",
+        "matches": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "spec": ["tests/**/*.spec.ts"],
+  "require": ["./support/hooks.ts"],
+  "reporter": "mochawesome",
+  "reporter-option": {
+    "reportDir": "artifacts/report",
+    "reportFilename": "index",
+    "reportTitle": "Ria QA Challenge",
+    "inline": true,
+    "json": false,
+    "code": false
+  },
+  "timeout": 180000
+}

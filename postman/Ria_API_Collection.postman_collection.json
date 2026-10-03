@@ -1,0 +1,81 @@
+{
+  "info": {
+    "_postman_id": "5903ff5c-42f4-4c86-9486-3c3200f3f80d",
+    "name": "Ria_API_Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "23230473"
+  },
+  "item": [
+    {
+      "name": "Get All Posts - Validate Content and Exclude Zombie",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "//Whether status is 200 OK using Get endpoint\npm.test(\"Status code is 200 OK\", function () {\n    pm.response.to.have.status(200);\n});\n\n//all title and body fields have content\npm.test(\"Response body is a non-empty array\", function () {\n    const posts = pm.response.json();\n    pm.expect(posts).to.be.an(\"array\").that.is.not.empty;\n});\n\npm.test(\"All posts have non-empty 'title' and 'body'\", function () {\n    const posts = pm.response.json();\n\n    posts.forEach((post, index) => {\n        const identifier = post.id ? `Post ID ${post.id}` : `Index ${index}`;\n\n        // Ensure fields exist, are strings, and contain non-whitespace characters\n        pm.expect(post.title, `${identifier} title should be a string`).to.be.a(\"string\");\n        pm.expect(post.title.trim(), `${identifier} title should not be empty`).to.not.be.empty;\n\n        pm.expect(post.body, `${identifier} body should be a string`).to.be.a(\"string\");\n        pm.expect(post.body.trim(), `${identifier} body should not be empty`).to.not.be.empty;\n    });\n});\n\n// and none of the fields contain the word zombie;\npm.test(\"None of the fields contain the word 'zombie'\", function () {\n    const posts = pm.response.json();\n    const restrictedWordPattern = /\\bzombie\\b/i;\n\n    posts.forEach((post, index) => {\n        const identifier = post.id ? `Post ID ${post.id}` : `Index ${index}`;\n\n        // Dynamically validate all key-value pairs across the entity\n        Object.entries(post).forEach(([key, value]) => {\n            pm.expect(\n                restrictedWordPattern.test(String(value)),\n                `${identifier} -> field '${key}' contains restricted word 'zombie'`\n            ).to.be.false;\n        });\n    });\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts/",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Verify Order Creation with Valid Toppings and No Chicken",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "//Whether status is 200 /201 using the POST endpoint and the request body below\npm.test(\"Status code is 200 or 201\", function () {\n    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\n});\n\n// Helper: Extract and normalize toppings once for all subsequent assertions\nconst response = pm.response.json();\nconst payload = response.json || {};\nconst rawToppings = payload.toppin || payload.topping || payload.toppings;\nconst toppings = Array.isArray(rawToppings) \n    ? rawToppings.map(t => String(t).trim().toLowerCase()) \n    : [];\n\n// is bacon, cheese and mushroom\npm.test(\"Toppings include bacon, cheese, and mushroom\", function () {\n    pm.expect(rawToppings, \"Topping array should be present in response payload\").to.be.an(\"array\");\n    \n    pm.expect(toppings).to.include(\"bacon\");\n    pm.expect(toppings).to.include(\"cheese\");\n    pm.expect(toppings).to.include(\"mushroom\");\n});\n\n// and does not contain chicken\npm.test(\"Toppings do not contain chicken\", function () {\n    pm.expect(toppings).to.not.include(\"chicken\");\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\"student\": \"Tim Allen\",\n\"email_address\": \"tim@homeimprovement.com\",\n\"phone\": \"(408) 8674530\",\n\"current_grade\": \"B+\",\n\"toppin\": [\n\"bacon\",\n\"cheese\",\n\"mushroom\"\n]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://httpbin.org/post",
+          "protocol": "https",
+          "host": [
+            "httpbin",
+            "org"
+          ],
+          "path": [
+            "post"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
